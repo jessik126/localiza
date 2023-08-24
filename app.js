@@ -19,9 +19,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.get('/', (req, res) => {
-    res.send('ola mundo');
-});
+var carroRouter = require('./routes/carroRouter');
+app.use('/', carroRouter);
+
+var esportivoRouter = require('./routes/esportivoRouter');
+app.use('/', esportivoRouter);
+
+var utilitarioRouter = require('./routes/utilitarioRouter');
+app.use('/', utilitarioRouter);
 
 const PORT = 3000;
 const HOST = '0.0.0.0'
