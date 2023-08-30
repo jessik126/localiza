@@ -13,9 +13,9 @@ module.exports = class ClienteController {
             telefone: req.body.telefone,
             email: req.body.email,
             endereco: req.body.endereco,
-            salario: req.body.salario,
-            qtAlugueis: req.body.qtAlugueis,
-            status: req.body.status
+            numCarteiraMotorista: req.body.numCarteiraMotorista,
+            anoVencimentoCarteira: req.body.anoVencimentoCarteira,
+            fotoCarteira: req.body.fotoCarteira
         });
 
         cliente.save(cliente).then(data => {
