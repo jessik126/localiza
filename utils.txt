@@ -1,12 +1,11 @@
 Banco de dados - body
 
-POST
+POST localhost:3000/promocao
 {
     "titulo": "Promocao Teste",
     "descricao": "Minha primeira promocao",
     "dtValidade": "2023/09/01"
 }
-
 
 POST localhost:3000/reserva
 {

@@ -32,4 +32,18 @@ module.exports = class ReservaController {
             res.status(500).send({mensagem: error.message || `Erro ao tentar buscar os dados do reserva pelo CPF do cliente: ${req.body.cpfCliente}.`});
         });
     }
+
+    static async atualizar(req, res){
+        console.log(req.body);
+
+        const { id } = req.query;
+        
+        Reserva.findByIdAndUpdate(id, req.body, {useFindAndModify: false}).then(data => {
+            if(!data){
+                res.status(404).send({mensagem:`Nenhuma reserva encontrada para o id ${id}.`});
+            } else res.send({mensagem: `Reserva id ${id} atualizada com sucesso.`});
+        }).catch(error =>{
+            res.status(500).send({mensagem: error.message || `Erro ao tentar atualizar os dados do reserva id: ${id}.`});
+        });
+    }
 }
