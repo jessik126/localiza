@@ -13,9 +13,9 @@ module.exports = class FuncionarioController {
             telefone: req.body.telefone,
             email: req.body.email,
             endereco: req.body.endereco,
-            numCarteiraMotorista: req.body.numCarteiraMotorista,
-            anoVencimentoCarteira: req.body.anoVencimentoCarteira,
-            fotoCarteira: req.body.fotoCarteira
+            salario: req.body.salario,
+            qtAlugueis: req.body.qtAlugueis,
+            status: req.body.status
         });
 
         funcionario.save(funcionario).then(data => {
