@@ -1,0 +1,71 @@
+Banco de dados - body
+
+POST
+{
+    "titulo": "Promocao Teste",
+    "descricao": "Minha primeira promocao",
+    "dtValidade": "2023/09/01"
+}
+
+
+POST localhost:3000/reserva
+{
+    "placaCarro": "ABC1234",
+    "cpfCliente": "000.000.000-00",
+    "status": true,
+    "dtInicio": "2023/09/09",
+    "dtFim": "2023/09/11"
+}
+
+POST localhost:3000/cliente
+{
+    "nome": "Jess",
+    "cpf": "000.000.000-00",
+    "idade": 30,
+    "dtNascimento": "1991/09/09",
+    "telefone": "999999999",
+    "email": "j@mail.com",
+    "endereco": "RuaLalala",
+    "numCarteiraMotorista": 123456,
+    "anoVencimentoCarteira": 2025
+}
+
+POST localhost:3000/funcionario
+{
+    "nome": "Jess",
+    "cpf": "000.000.000-00",
+    "idade": 30,
+    "dtNascimento": "1991/09/09",
+    "telefone": "999999999",
+    "email": "j@mail.com",
+    "endereco": "RuaLalala",
+    "salario": 1500,
+    "qtAlugueis": 0,
+    "status": true
+}
+
+POST localhost:3000/carro-utilitario
+{
+    "placa":"ABC1234",
+    "qtPassageiro":5,
+    "tmBagageiro":100,
+    "kmLitro":12
+}
+
+POST localhost:3000/carro-esportivo
+{
+    "placa":"ABC1234",
+    "tp100km":60,
+    "melhorias":"[segurança]"
+}
+
+POST localhost:3000/carro
+{
+    "placa":"ABC1234",
+    "ano":2000,
+    "modelo":"uno",
+    "tipo":"utilitario",
+    "quilometragem":10000,
+    "diaria":"100"
+}
+
