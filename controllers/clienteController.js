@@ -21,9 +21,21 @@ module.exports = class ClienteController {
         cliente.save(cliente).then(data => {
             res.send(data);
         }).catch(error =>{
-            res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do cliente: ${cliente}.`});
+            res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do cliente: ${req.body.cliente}.`});
         });
+    }
 
+    static async buscar(req, res){
+        console.log(req.body);
 
+        Cliente.findOne({cpfCliente: req.body.cpfCliente}).then(data => {
+            console.log(data);
+            if(!data){
+                return res.status(404).json({'mensagem':`Nenhum cliente encontrad com o cpf ${req.body.cpfCliente}.`});
+            }
+            res.send(data);
+        }).catch(error =>{
+            res.status(500).send({mensagem: error.message || `Erro ao tentar buscar os dados do cliente pelo CPF: ${req.body.cpfCliente}.`});
+        });
     }
 }

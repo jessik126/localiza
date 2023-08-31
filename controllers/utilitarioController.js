@@ -18,7 +18,7 @@ module.exports = class UtilitarioController {
         utilitario.save(utilitario).then(data => {
             res.send(data);
         }).catch(error =>{
-            res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do ${utilitario}.`});
+            res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do ${req.body.utilitario}.`});
         });
 
 

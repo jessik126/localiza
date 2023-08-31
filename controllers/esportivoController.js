@@ -17,7 +17,7 @@ module.exports = class EsportivoController {
         esportivo.save(esportivo).then(data => {
             res.send(data);
         }).catch(error =>{
-            res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do ${esportivo}.`});
+            res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do ${req.body.esportivo}.`});
         });
 
 
