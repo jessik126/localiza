@@ -13,7 +13,7 @@ module.exports = class ReservaController {
             dtFim: req.body.dtFim
         });
 
-        Reserva.save(reserva).then(data => {
+        reserva.save().then(data => {
             res.send(data);
         }).catch(error =>{
             res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do reserva: ${reserva}.`});

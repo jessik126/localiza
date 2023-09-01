@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon ./app.js localhost 3000"
+    "watch": "nodemon ./app.js localhost 3000",
+    "dev": "node ./app.js"
   },
   "keywords": [],
   "author": "",

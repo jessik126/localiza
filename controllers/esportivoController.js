@@ -6,20 +6,18 @@ module.exports = class EsportivoController {
     static async inserir(req, res){
         console.log(req.body);
 
-        const c = await Carro.findOne({placa : req.body.placa});
+        const carro = await Carro.findOne({placa : req.body.placa});
 
         const esportivo = new Esportivo({
-            idCarro: c._id,
+            idCarro: carro._id,
             tp100km: req.body.tp100km,
             melhorias: req.body.melhorias
         });
 
-        Esportivo.save(esportivo).then(data => {
+        esportivo.save().then(data => {
             res.send(data);
         }).catch(error =>{
             res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do ${req.body.esportivo}.`});
         });
-
-
     }
 }

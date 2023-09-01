@@ -2,7 +2,7 @@ const Cliente = require('../models/cliente');
 
 module.exports = class ClienteController {
     
-    static async inserir(req, res){
+    static inserir(req, res){
         console.log(req.body);
 
         const cliente = new Cliente({
@@ -18,7 +18,7 @@ module.exports = class ClienteController {
             fotoCarteira: req.body.fotoCarteira
         });
 
-        cliente.save(cliente).then(data => {
+        cliente.save().then(data => {
             res.send(data);
         }).catch(error =>{
             res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do cliente: ${req.body.cliente}.`});

@@ -2,7 +2,7 @@ const Carro = require('../models/carro');
 
 module.exports = class CarroController {
     
-    static async inserir(req, res){
+    static inserir(req, res){
         console.log(req.body);
 
         const carro = new Carro({
@@ -15,7 +15,7 @@ module.exports = class CarroController {
             observacao: req.body.observacao
         });
 
-        Carro.save(carro).then(data => {
+        carro.save().then(data => {
             res.send(data);
         }).catch(error =>{
             res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do ${req.body.carro}.`});
@@ -25,10 +25,10 @@ module.exports = class CarroController {
     static async buscarPlaca(req, res){
         console.log(req.body);
 
-        Carro.findOne({placa: req.body.placa}).then(data => {
+        Carro.findOne({placa: req.query.placa}).then(data => {
             console.log(data);
             if(!data){
-                return res.status(404).json({'mensagem':`Nenhum carro encontrado pela placa ${req.body.placa}.`});
+                return res.status(404).json({'mensagem':`Nenhum carro encontrado pela placa ${req.query.placa}.`});
             }
             res.send(data);
         }).catch(error =>{
@@ -39,7 +39,7 @@ module.exports = class CarroController {
     static async deletar(req, res){
         console.log(req.body);
 
-        const { id } = req.query;
+        const { id } = req.params;
 
         Carro.findByIdAndRemove(id, {useFindAndModify: false}).then(data => {
             if(!data){
