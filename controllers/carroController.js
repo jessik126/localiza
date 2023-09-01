@@ -35,4 +35,19 @@ module.exports = class CarroController {
             res.status(500).send({mensagem: error.message || `Erro ao tentar buscar os dados do carro pela placa: ${req.body.placa}.`});
         });
     }
+
+    static async deletar(req, res){
+        console.log(req.body);
+
+        const { id } = req.query;
+
+        Carro.findByIdAndRemove(id, {useFindAndModify: false}).then(data => {
+            if(!data){
+                res.status(404).json({'mensagem':`Nenhum carro encontrado pelo id ${id}.`});
+            } else res.send({mensagem: `Carro ${id} removido com sucesso`});
+        }).catch(error =>{
+            res.status(500).send({mensagem: error.message || `Erro ao tentar remover os dados do carro pelo id: ${id}.`});
+        });
+    }
+
 }
