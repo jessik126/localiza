@@ -15,7 +15,7 @@ module.exports = class UtilitarioController {
             kmLitro: req.body.kmLitro
         });
 
-        utilitario.save(utilitario).then(data => {
+        Utilitario.save(utilitario).then(data => {
             res.send(data);
         }).catch(error =>{
             res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do ${req.body.utilitario}.`});

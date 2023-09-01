@@ -12,7 +12,7 @@ module.exports = class PromocaoController {
             dtValidade: req.body.dtValidade
         });
 
-        promocao.save(promocao).then(data => {
+        Promocao.save(promocao).then(data => {
             res.send(data);
         }).catch(error =>{
             res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do promocao: ${req.body.promocao}.`});

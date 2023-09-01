@@ -18,7 +18,7 @@ module.exports = class FuncionarioController {
             status: req.body.status
         });
 
-        funcionario.save(funcionario).then(data => {
+        Funcionario.save(funcionario).then(data => {
             res.send(data);
         }).catch(error =>{
             res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do funcionario: ${req.body.funcionario}.`});

@@ -15,7 +15,7 @@ module.exports = class CarroController {
             observacao: req.body.observacao
         });
 
-        carro.save(carro).then(data => {
+        Carro.save(carro).then(data => {
             res.send(data);
         }).catch(error =>{
             res.status(500).send({mensagem: error.message || `Erro ao tentar inserir os dados do ${req.body.carro}.`});
